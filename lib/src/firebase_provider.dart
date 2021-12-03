@@ -19,8 +19,17 @@ class FirebaseProvider implements AnalyticsProvider {
 
   Future<void> trackEvent(AnalyticsEvent event) async {
     debugPrint(
-        "[Firebase]: Logging Event: ${event.name} properties: ${event.properties.toString()}");
+        "[Firebase]: Tracking Event: ${event.name} properties: ${event.properties.toString()}");
     await analytics.logEvent(name: event.name, parameters: event.properties);
+  }
+
+  Future<void> trackEvents(List<AnalyticsEvent> events) async {
+    debugPrint("[Firebase]: Tracking ${events.length} Events");
+    events.forEach((event) async {
+      debugPrint(
+          "[Firebase]: Tracking Event: ${event.name} properties: ${event.properties.toString()}");
+      await analytics.logEvent(name: event.name, parameters: event.properties);
+    });
   }
 }
 
