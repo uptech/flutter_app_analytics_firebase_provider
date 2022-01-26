@@ -5,13 +5,13 @@ import 'package:flutter_app_analytics/flutter_app_analytics.dart';
 class FirebaseProvider implements AnalyticsProvider {
   FirebaseProvider();
 
-  FirebaseAnalytics analytics = FirebaseAnalytics();
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   Future<void> identify(AnalyticsIdentification properties) async {
     String data =
         FirebaseAnalyticsIdentification(properties).toJson().toString();
     debugPrint("[Firebase]: Setting Analytics Identification: $data");
-    await analytics.setUserId(properties.userId);
+    await analytics.setUserId(id: properties.userId);
     properties.userProperties?.forEach((key, value) async {
       await analytics.setUserProperty(name: key, value: value);
     });
