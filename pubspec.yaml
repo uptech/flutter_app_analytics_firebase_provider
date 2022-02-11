@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   dio: ^4.0.4
-  firebase_analytics: ^9.0.5
+  firebase_analytics: ^9.1.0
   flutter:
     sdk: flutter
   flutter_app_analytics:
