@@ -299,7 +299,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: ae0da53d884e3babfda070972f242211635ee81f
-      url: "git@github.com:uptech/flutter_app_analytics.git"
+      url: "https://github.com/uptech/flutter_app_analytics.git"
     source: git
     version: "0.0.1"
   flutter_test:

@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_app_analytics:
-    git: git@github.com:uptech/flutter_app_analytics.git
+    git: https://github.com/uptech/flutter_app_analytics.git
 dev_dependencies:
   flutter_test:
     sdk: flutter
