@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_app_analytics/src/analytics_event.dart';
-import 'package:flutter_app_analytics/src/analytics_identification.dart';
 import 'package:flutter_app_analytics_firebase_provider/flutter_app_analytics_firebase_provider.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -39,10 +38,7 @@ void main() {
         final FirebaseProvider provider = FirebaseProvider();
         provider.analytics = firebase;
 
-        AnalyticsIdentification props = AnalyticsIdentification();
-        props.userId = mockUserId;
-
-        await provider.identify(props);
+        await provider.identify(userId: mockUserId);
 
         verify(() => firebase.setUserId(id: mockUserId)).called(1);
       });
@@ -51,13 +47,9 @@ void main() {
         final FirebaseProvider provider = FirebaseProvider();
         provider.analytics = firebase;
 
-        AnalyticsIdentification props = AnalyticsIdentification();
-        props.userId = mockUserId;
-        props.userProperties = {
+        await provider.identify(userId: mockUserId, properties: {
           'key': 'value',
-        };
-
-        await provider.identify(props);
+        });
 
         verify(() => firebase.setUserId(id: mockUserId)).called(1);
         verify(() => firebase.setUserProperty(
