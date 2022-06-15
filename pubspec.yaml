@@ -5,11 +5,10 @@ homepage:
 publish_to: none
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.17.1 <3.0.0"
 
 dependencies:
-  firebase_analytics: ^9.1.0
+  firebase_analytics: ^9.1.9
   flutter:
     sdk: flutter
   flutter_app_analytics:
@@ -17,8 +16,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.1.7
-  mocktail: ^0.2.0
+  build_runner: ^2.1.11
+  mocktail: ^0.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

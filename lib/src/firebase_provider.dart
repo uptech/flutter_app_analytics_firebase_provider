@@ -21,8 +21,6 @@ class FirebaseProvider implements AnalyticsProvider {
   }
 
   Future<void> trackEvents(List<AnalyticsEvent> events) async {
-    await Future.forEach<AnalyticsEvent>(events, (event) async {
-      await trackEvent(event);
-    });
+    await Future.forEach<AnalyticsEvent>(events, (event) => trackEvent(event));
   }
 }
