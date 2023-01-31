@@ -10,7 +10,8 @@ final List<MethodCall> methodCallLog = <MethodCall>[];
 void setupFirebaseAnalyticsMocks([Callback? customHandlers]) {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelFirebase.channel.setMockMethodCallHandler((call) async {
+  MethodChannel('plugins.flutter.io/firebase_analytics')
+      .setMockMethodCallHandler((call) async {
     if (call.method == 'Firebase#initializeCore') {
       return [
         {
