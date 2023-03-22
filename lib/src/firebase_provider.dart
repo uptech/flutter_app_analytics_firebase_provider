@@ -2,7 +2,11 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_app_analytics/flutter_app_analytics.dart';
 
 class FirebaseProvider implements AnalyticsProvider {
-  FirebaseProvider();
+  @override
+  List<String> allowedUserProperties;
+
+  FirebaseProvider({List<String>? allowedProperties})
+      : allowedUserProperties = allowedProperties ?? [];
 
   FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
